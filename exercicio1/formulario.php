@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['carro'])) {
+	session_unset();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -6,23 +15,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/site.css">
 
     <title>Formulário</title>
   </head>
-  <body>
-  	<div class="container">
+  <body class="body">
+
+	<!-- Barra de navegação -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #e3f2fd;">
+	  <span class="navbar-brand" href="index.php">Exercício 01</span>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-link" href="index.php">Página Inicial</a>
+	      </li>
+	      <li class="nav-item active">
+	        <a class="nav-link" href="formulario.php">Formulário</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+	<div class="container d-flex align-items-center flex-column full-page">
+		<!-- Formulário -->
 		<form action="controller.php" method="post">
 		  	<div class="form-group">
-			    <h1 style="text-align: center;">Carro</h1>
 			    <h3 style="margin-top: 50px;">Entre com os dados do carro:</h3>
-		    	<div class="form-row">
-		    		<div class="col-sm-6">
+		    	<div class="form-row p-1">
+		    		<div class="col-sm-4">
 			    		<input class="form-control" type="text" name="marca" placeholder="Marca">
 			    	</div>
-		    		<div class="col-sm-6">
+		    		<div class="col-sm-4">
 		    			<input class="form-control" type="text" name="modelo" placeholder="Modelo">
 		    		</div>
+		    	</div>
+		    		<div class="form-row p-1">	
 		    		<div class="col-sm-4">
 		    			<input class="form-control" type="text" name="cor" placeholder="Cor">
 		    		</div>
@@ -49,7 +79,9 @@
 			    	</div>
 		    	</div>
 		  	</div>
-		  	<button style="" type="submit" class="btn btn-primary btn-block">Enviar formulário</button>
+		  	<div class="form-row justify-content-center">
+		  		<button  type="submit" class="btn btn-primary btn-block">Enviar formulário</button>
+		  	</div>
 		</form>
 	</div>
     
